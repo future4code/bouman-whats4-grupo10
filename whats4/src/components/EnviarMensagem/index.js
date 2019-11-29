@@ -1,4 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Mensagem = styled.div `
+    margin-left: 10px;
+`
 
 class EnviarMensagem extends React.Component {
     constructor(props) {
@@ -7,9 +12,9 @@ class EnviarMensagem extends React.Component {
 
     render() {
         return (
-            <div>
+            <Mensagem>
                 <b>{this.props.name}:</b> {this.props.message}
-            </div>
+            </Mensagem>
         )
     }
     
