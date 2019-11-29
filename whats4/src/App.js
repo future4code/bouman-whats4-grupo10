@@ -30,31 +30,64 @@ const Main = styled.div `
 `
 
 const InputNomeUsuario = styled.input `
-  width: 70px;
-  height: 20px;
+  width: 50px;
+  height: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 const InputMensagemUsuario = styled.input `
-  width: 331px;
-  height: 20px;
+  width: 340px;
+  height: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 const SendButton = styled.button `
-  width: 70px;
+  width: 60px;
   height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
-const MensagemCointainer = styled.div `
+const ChatCointainer = styled.div `
   width: 500px;
   height: 700px;
-  border: 1px solid black;
+  border: 1px solid white;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   color: white;
+  background-image: url('https://fsa.zobj.net/crop.php?r=-f7FxoitgwmCeryGbkIMW_JrJNQJIFDzwnFR30JfvLhnK6OpK7XsWEIWtfADPT5EF1CUcSXSmqFWjyLJ6bVlR8iF5uaNg9WUwO2aco8EA6KyujD0jLIX_
+    c1gtu3ne7i1CI5GKy7WHLXKGgsJwSRBQ3B8asVG8gP4fLlHQohdUUIw_DPGvjAgxjnUfOA');
+  }
 `
+const MensagemContainer = styled.div `
+  width: 100%;
+  height: 92%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: start;
+  position: relative;
+  bottom: 0px;
+`
+
 const InputsContainer = styled.div `
   width: 100%;
-  height: 30px;
-  border-top: 1px solid black;
+  height: 8%;
+  border-top: 1px solid white;
+  background-color: gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 0px;
 `
 
 // Footer
@@ -110,18 +143,20 @@ class App extends React.Component {
       <div className="App">
         <Header>Whats4</Header>
           <Main>
-            <MensagemCointainer>
-              {this.state.listaMensagemUsuario.map(e => {
-                return(
-                <EnviarMensagem name={e.nome} message={e.mensagem}/>
-                )
-              })}
+            <ChatCointainer>
+              <MensagemContainer>
+                {this.state.listaMensagemUsuario.map(e => {
+                  return(
+                  <EnviarMensagem name={e.nome} message={e.mensagem}/>
+                  )
+                })}
+              </MensagemContainer>
               <InputsContainer>
                 <InputNomeUsuario type="text" onChange={this.nomeUsuario} value={this.state.inputNomeUsuario} placeholder="Usuário"/>
                 <InputMensagemUsuario type="text" onChange={this.nomeMensagem} value={this.state.inputMensagem} placeholder="Digite a mensagem"/>
                 <SendButton onClick={this.atualizaListaMensagemUsuario}>Enviar</SendButton>
               </InputsContainer>
-            </MensagemCointainer>
+            </ChatCointainer>
         </Main>
         <Footer></Footer>
       </div>

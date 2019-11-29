@@ -5,12 +5,6 @@ const Mensagem = styled.div `
     margin-left: 10px;
 `
 
-const BalãoMensagem = styled.div `
-    width: 20vw;
-    display: flex;
-    flex-direction: row
-`
-
 class EnviarMensagem extends React.Component {
     constructor(props) {
         super(props)
